@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.helper.classes.TreeNode;
+
 public class BalancedBinaryTree {
 
   public static void main(String[] args) {
@@ -19,8 +21,8 @@ public class BalancedBinaryTree {
     if (root == null) {
       return 0;
     }
-    int l = getHeight(root.left);
-    int r = getHeight(root.right);
+    int l = getHeight(root.getLeft());
+    int r = getHeight(root.getRight());
     // In case of left subtree or right subtree unbalanced, return -1...
     if (l == -1 || r == -1) {
       return -1;
@@ -31,24 +33,5 @@ public class BalancedBinaryTree {
     }
     // return max between l,r and add +1 for current node
     return Math.max(l, r) + 1;
-  }
-}
-
-class TreeNode {
-  int val;
-  TreeNode left;
-  TreeNode right;
-
-  TreeNode() {
-  }
-
-  TreeNode(int val) {
-    this.val = val;
-  }
-
-  TreeNode(int val, TreeNode left, TreeNode right) {
-    this.val = val;
-    this.left = left;
-    this.right = right;
   }
 }

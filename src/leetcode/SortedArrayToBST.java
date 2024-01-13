@@ -1,5 +1,7 @@
 package leetcode;
 
+import leetcode.helper.classes.TreeNode;
+
 public class SortedArrayToBST {
 
   public static void main(String[] args) {
@@ -18,28 +20,9 @@ public class SortedArrayToBST {
     }
     int mid = left + (right - left) / 2;
     TreeNode root = new TreeNode(nums[mid]);
-    root.left = createBST(nums, left, mid - 1);
-    root.right = createBST(nums, mid + 1, right);
+    root.setLeft(createBST(nums, left, mid - 1));
+    root.setRight(createBST(nums, mid + 1, right));
     return root;
   }
 
-}
-
-class TreeNode {
-  int val;
-  TreeNode left;
-  TreeNode right;
-
-  TreeNode() {
-  }
-
-  TreeNode(int val) {
-    this.val = val;
-  }
-
-  TreeNode(int val, TreeNode left, TreeNode right) {
-    this.val = val;
-    this.left = left;
-    this.right = right;
-  }
 }

@@ -1,17 +1,17 @@
 package leetcode;
 
-import leetcode.helper.classes.BinaryTree;
+import leetcode.helper.classes.TreeNode;
 
 import static java.lang.System.out;
 
 public class IsSameTree {
     public static void main(String[] args) {
-        BinaryTree p = new BinaryTree(1, new BinaryTree(2, new BinaryTree(3), null), new BinaryTree(4));
-        BinaryTree q = new BinaryTree(1, new BinaryTree(2, new BinaryTree(3), null), new BinaryTree(4));
+        TreeNode p = new TreeNode(1, new TreeNode(2, new TreeNode(3), null), new TreeNode(4));
+        TreeNode q = new TreeNode(1, new TreeNode(2, new TreeNode(3), null), new TreeNode(4));
         out.println(isSameTree(p, q));
     }
 
-    private static boolean isSameTree(BinaryTree p, BinaryTree q) {
+    private static boolean isSameTree(TreeNode p, TreeNode q) {
         if (p != null && q != null) {
             return p.getVal() == q.getVal() && isSameTree(p.getLeft(), q.getLeft())
                     && isSameTree(p.getRight(), q.getRight());

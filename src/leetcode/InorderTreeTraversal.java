@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.helper.classes.BinaryTree;
+import leetcode.helper.classes.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,12 +9,12 @@ import static java.lang.System.out;
 
 public class InorderTreeTraversal {
     public static void main(String[] args) {
-        var tree = new BinaryTree(1, new BinaryTree(2, new BinaryTree(3), null),
-                new BinaryTree(5, null, new BinaryTree(7)));
+        var tree = new TreeNode(1, new TreeNode(2, new TreeNode(3), null),
+                new TreeNode(5, null, new TreeNode(7)));
         out.println(inorderTraversal(tree));
     }
 
-    public static List<Integer> inorderTraversal(BinaryTree root) {
+    public static List<Integer> inorderTraversal(TreeNode root) {
         var list = new LinkedList<Integer>();
         if (root != null) {
             list.addAll(inorderTraversal(root.getLeft()));
