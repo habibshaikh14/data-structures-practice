@@ -1,8 +1,11 @@
 package leetcode;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class DailyTemperatures {
   public static void main(String[] args) {
-    for (int day : dailyTemperatures(new int[] { 73, 74, 75, 71, 69, 72, 76, 73 })) {
+    for (int day : betterSolution(new int[] { 73, 74, 75, 71, 69, 72, 76, 73 })) {
       System.out.println(day);
     }
   }
@@ -26,5 +29,29 @@ public class DailyTemperatures {
       }
     }
     return result;
+  }
+
+  private static int[] betterSolution(int[] temperatures) {
+    Deque<Integer> deque = new ArrayDeque<>();
+    int[] res = new int[temperatures.length];
+    for (int i = temperatures.length - 1; i >= 0; --i) {
+      if (deque.isEmpty()) {
+        deque.offerFirst(i);
+        res[i] = 0;
+      } else {
+        while (!deque.isEmpty() && temperatures[i] >= temperatures[deque.peekFirst()]) {
+          deque.pollFirst();
+        }
+
+        if (deque.isEmpty()) {
+          res[i] = 0;
+        } else {
+          res[i] = deque.peekFirst() - i;
+        }
+
+        deque.offerFirst(i);
+      }
+    }
+    return res;
   }
 }
