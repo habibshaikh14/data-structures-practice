@@ -2,7 +2,7 @@ package leetcode;
 
 import static java.lang.System.out;
 
-public class TwoSumProblem {
+public class TwoSum {
     public static void main(String[] args) {
         int[] numbers = { 3, 2, 4 };
         int target = 6;
