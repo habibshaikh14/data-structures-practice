@@ -36,7 +36,7 @@ public class LengthOfLongestSubstring {
         set.add(s.charAt(j++));
         res = Math.max(set.size(), res); // we will update the result value after each iteration.
       } else
-        set.remove(s.charAt(i++)); // if set contains the char, then we have to remove it from the beginning, so as
+        set.remove(s.charAt(i++)); // if set contains the char, then we have to keep removing it from the beginning, so as
                                    // to mantain the substring.
     }
     return res; // finally, return the result.
